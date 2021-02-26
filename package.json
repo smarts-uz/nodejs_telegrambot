@@ -1,0 +1,18 @@
+{
+  "name": "temprobot",
+  "version": "1.0.0",
+  "description": "query bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Norqobilov Akmal",
+  "license": "ISC",
+  "dependencies": {
+    "@esindger/telegraf-i18n": "^0.5.4",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7",
+    "telegraf": "^3.38.0"
+  }
+}
