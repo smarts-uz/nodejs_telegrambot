@@ -62,16 +62,7 @@ bot.on('location', ctx => {
     });
 })
 
-bot.action('yes', ctx => {
-  ctx.answerCbQuery(ctx.session.language?.thanks, true);
-})
-bot.action('no', ctx => {
-  ctx.reply(ctx.session.language?.askPhoneWithLocation, {
-    reply_markup: Markup.keyboard([
-      [Markup.contactRequestButton(`${ctx.session.language?.askPhone}`), Markup.locationRequestButton(`${ctx.session.language?.askLocation}`)]
-    ]).resize()
-  })
-})
+
 bot.on('contact', ctx => {
   ctx.session.contact = ctx.message.contact?.phone_number;
   (!ctx.session.location) ? ctx.reply(ctx.session.language?.askLocation) : ctx.reply(ctx.session.language?.agree, {
@@ -82,5 +73,16 @@ bot.on('contact', ctx => {
   });
 })
 
+
+bot.action('yes', ctx => {
+  ctx.answerCbQuery(ctx.session.language?.thanks, true);
+})
+bot.action('no', ctx => {
+  ctx.reply(ctx.session.language?.askPhoneWithLocation, {
+    reply_markup: Markup.keyboard([
+      [Markup.contactRequestButton(`${ctx.session.language?.askPhone}`), Markup.locationRequestButton(`${ctx.session.language?.askLocation}`)]
+    ]).resize()
+  })
+})
 
 bot.launch();
